@@ -38,7 +38,6 @@ void ATankPlayerController::AimTowardsCrosshair()
 	if (GetSightRayHitLocation(HitLocation))
 	{
 		GetControlledTank()->AimAt(HitLocation);
-		//TODO Remove UE_LOG(LogTemp, Warning, TEXT("TargetLocation: %s"), *HitLocation.ToString());
 	}
 }
 
@@ -58,7 +57,7 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 
 bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
 {
-	FVector CameraWorldLocation;  // To be discarded
+	FVector CameraWorldLocation;  //TODO To be discarded
 	return DeprojectScreenPositionToWorld(ScreenLocation.X, ScreenLocation.Y, CameraWorldLocation, LookDirection);
 	
 }
