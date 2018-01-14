@@ -13,6 +13,11 @@ void ATankAIController::Tick(float DeltaTime)
 
 	if (PlayerTank)
 	{
+
+		//Move towards player
+		MoveToActor(PlayerTank, AcceptanceRadius);  //TODO Check this is in CM?
+
+
 		FVector PlayerTankLocation = PlayerTank->GetActorLocation();
 		ControlledTank->AimAt(PlayerTankLocation);
 
