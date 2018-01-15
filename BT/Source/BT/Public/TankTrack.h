@@ -17,11 +17,11 @@ class BT_API UTankTrack : public UStaticMeshComponent
 public:
 	
 	//Sets a throttle between 0 and 1
-	UFUNCTION(BlueprintCallable, Category = Input)
+	UFUNCTION(BlueprintCallable, Category = "Input")
 	void SetThrottle(float Throttle);
 	
 	//Sets a maximum force per track in Newtons
-	UPROPERTY(EditDefaultsOnly, Category = Movement)
+	UPROPERTY(EditDefaultsOnly, Category = "Movement")
 	float TrackMaxDrivingForce = 400000;
 
 };

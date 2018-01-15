@@ -24,9 +24,12 @@ public:
 
 	virtual void BeginPlay() override;
 
-private:
+protected:
 
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank* GetControlledTank() const;
+
+private:
 
 	void AimTowardsCrosshair();
 
