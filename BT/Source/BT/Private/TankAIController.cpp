@@ -2,7 +2,7 @@
 
 #include "TankAIController.h"
 #include "Tank.h"
-
+// Depends on movement component via pathfinding system
 
 void ATankAIController::Tick(float DeltaTime)
 {
@@ -11,7 +11,7 @@ void ATankAIController::Tick(float DeltaTime)
 	auto PlayerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	auto ControlledTank = Cast<ATank>(GetPawn());
 
-	if (PlayerTank)
+	if (ensure(PlayerTank))
 	{
 
 		//Move towards player
