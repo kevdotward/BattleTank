@@ -7,10 +7,8 @@
 
 void UTankAimingComponent::Initialise(UTankTurret* TurretToSet, UTankBarrel* BarrelToSet)
 {
-
 	Turret = TurretToSet;
 	Barrel = BarrelToSet;
-
 }
 
 // Sets default values for this component's properties
@@ -23,9 +21,8 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
+void UTankAimingComponent::AimAt(FVector HitLocation)
 {
-
 	if (!ensure(Turret && Barrel)) { return; }
 	
 	FVector OutLaunchVelocity;
@@ -46,14 +43,12 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	if (bHaveAimSolution)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
-		
 		AimTowards(AimDirection);
 	}
 }
 
 void UTankAimingComponent::AimTowards(FVector AimDirection)
 {
-
 	if (!ensure(Turret && Barrel)) { return; }
 
 	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
