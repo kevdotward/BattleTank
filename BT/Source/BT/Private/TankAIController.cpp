@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Kev Ward, London, UK.
 
 #include "TankAIController.h"
 #include "TankAimingComponent.h"

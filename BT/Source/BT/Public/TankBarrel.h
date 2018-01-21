@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Kev Ward, London, UK.
 
 #pragma once
 
@@ -28,5 +28,4 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	float MinElevationDegrees = 0;
-
 };

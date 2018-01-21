@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Kev Ward, London, UK.
 
 #pragma once
 
@@ -40,11 +40,15 @@ public:
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
-	EFiringState FiringState = EFiringState::Aiming;
+	EFiringState FiringState = EFiringState::Reloading;
 
 private:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
+
+	virtual void BeginPlay() override;
+
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 
 	void AimTowards(FVector AimDirection);
 	
@@ -61,4 +65,11 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float ReloadTimeInSeconds = 2;
+
+	UPROPERTY(EditAnywhere, Category = "UI")
+	float AimingIndicatorMovementSensitivity = 0.02f;
+
+	bool IsBarrelMoving();
+
+	FVector AimDirection;
 };
