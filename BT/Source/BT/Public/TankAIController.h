@@ -18,9 +18,12 @@ class BT_API ATankAIController : public AAIController
 public:
 	virtual void Tick(float DeltaTime) override;
 
+protected:
+	//How close can the tank get to the Player Tank?
+	UPROPERTY(EditDefaultsOnly, Category = "Movement")
+	float AcceptanceRadius = 8000;
+
 private:
 	virtual void BeginPlay() override;
 
-	//How close can the tank get to the Player Tank?
-	float AcceptanceRadius = 3000;
 };

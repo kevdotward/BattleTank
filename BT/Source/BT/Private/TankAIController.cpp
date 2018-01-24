@@ -5,6 +5,11 @@
 // Depends on movement component via pathfinding system
 
 
+void ATankAIController::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
 void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -13,18 +18,16 @@ void ATankAIController::Tick(float DeltaTime)
 	auto ControlledTank = GetPawn();
 
 	if (!ensure(PlayerTank && ControlledTank)) { return; }
-	
+
 	//Move towards player
-	MoveToActor(PlayerTank, AcceptanceRadius);  //TODO Check this is in CM?
+	MoveToActor(PlayerTank, AcceptanceRadius);
 
 	FVector PlayerTankLocation = PlayerTank->GetActorLocation();
 	auto AimingComponent = ControlledTank->FindComponentByClass<UTankAimingComponent>();
 	AimingComponent->AimAt(PlayerTankLocation);
-	
-	AimingComponent->Fire();
-}
 
-void ATankAIController::BeginPlay()
-{
-	Super::BeginPlay();
+	if (AimingComponent->GetFiringState() == EFiringState::Locked)
+	{
+		AimingComponent->Fire();
+	}
 }
