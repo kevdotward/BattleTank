@@ -79,5 +79,6 @@ private:
 
 	FVector AimDirection;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	int32 Ammo = 9;
 };
