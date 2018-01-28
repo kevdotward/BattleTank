@@ -45,4 +45,9 @@ private:
 
 	UPROPERTY(EditDefaultsOnly)
 	float LineTraceRange = 1000000.0;
+
+	virtual void Possess(APawn* InPawn) override;
+
+	UFUNCTION(Category = "Delegates")
+	void OnPossessedTankDeath();
 };

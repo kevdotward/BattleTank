@@ -26,4 +26,8 @@ protected:
 private:
 	virtual void BeginPlay() override;
 
+	virtual void Possess(APawn* InPawn) override;
+
+	UFUNCTION(Category = "Delegates")
+	void OnPossessedPawnDeath();
 };
